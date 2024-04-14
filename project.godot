@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="factory"
+run/main_scene="res://src/main.tscn"
+config/features=PackedStringArray("4.3")
+config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="factory"
+
+[input]
+
+rotate_cw={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":90,"physical_keycode":0,"key_label":0,"unicode":122,"location":0,"echo":false,"script":null)
+]
+}
+rotate_ccw={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.151967, 0.255608, 0.124442, 1)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1k05t2n1bekb"]
+
+[ext_resource type="Script" path="res://src/item/item.gd" id="1_ameec"]
+[ext_resource type="Texture2D" uid="uid://2blnbyuxyhjq" path="res://src/assets/art/items/item.png" id="1_cpo3m"]
+[ext_resource type="Resource" uid="uid://sdq2runbfvbx" path="res://src/item_infos/item.tres" id="3_mu6xw"]
+
+[node name="Item" type="Sprite2D"]
+texture = ExtResource("1_cpo3m")
+script = ExtResource("1_ameec")
+item_info = ExtResource("3_mu6xw")

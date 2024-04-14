@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=4 format=3 uid="uid://cqbdppng2y44"]
+
+[ext_resource type="Script" path="res://src/tile_infos/tile_info.gd" id="1_et33a"]
+[ext_resource type="Texture2D" uid="uid://cj63riw7lqg88" path="res://src/assets/art/tiles/icons/factory.png" id="1_v7hec"]
+[ext_resource type="Resource" uid="uid://sdq2runbfvbx" path="res://src/item_infos/item.tres" id="3_gwdxa"]
+
+[resource]
+script = ExtResource("1_et33a")
+type = &"factory"
+icon = ExtResource("1_v7hec")
+atlas_pos = Vector2i(0, 4)
+layer = 0
+directional = true
+spawn_item = ExtResource("3_gwdxa")
+push_items = true
+push_item_time = 0.1
+spawn_in_front = false
+spawn_duration = 2.0

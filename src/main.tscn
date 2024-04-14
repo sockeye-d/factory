@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://4w5adxir4ya1"]
+
+[ext_resource type="Texture2D" uid="uid://mhx16onkxjr0" path="res://src/assets/art/ui/arrow_left.png" id="1_6gjem"]
+[ext_resource type="PackedScene" uid="uid://84e00b3bfcur" path="res://src/tile_map.tscn" id="1_t44fv"]
+[ext_resource type="Script" path="res://src/ui/modulate_texture_button.gd" id="1_teoog"]
+[ext_resource type="Texture2D" uid="uid://d4jmiy4hm4f6f" path="res://src/assets/art/ui/arrow_right.png" id="4_4fpep"]
+[ext_resource type="PackedScene" uid="uid://dlucxyd45u4mp" path="res://src/ui/tile_scroll_container.tscn" id="4_skgto"]
+[ext_resource type="Resource" uid="uid://cueblmka63dd3" path="res://src/tile_infos/conveyor_belt.tres" id="5_gj4gi"]
+[ext_resource type="Resource" uid="uid://cqbdppng2y44" path="res://src/tile_infos/factory.tres" id="6_vudjp"]
+[ext_resource type="Resource" uid="uid://c1iimsen1qdqp" path="res://src/tile_infos/shovel.tres" id="7_vy1h8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TileMap" parent="." instance=ExtResource("1_t44fv")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 64
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 64
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="ScrollLeftButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_6gjem")
+script = ExtResource("1_teoog")
+texture = ExtResource("1_6gjem")
+
+[node name="TileSelector" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_skgto")]
+layout_mode = 2
+size_flags_vertical = 0
+tile_info_dir = "res://src/tile_infos"
+tile_infos = Array[Resource("res://src/tile_infos/tile_info.gd")]([ExtResource("5_gj4gi"), ExtResource("6_vudjp"), ExtResource("7_vy1h8")])
+
+[node name="ScrollRightButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("4_4fpep")
+script = ExtResource("1_teoog")
+texture = ExtResource("4_4fpep")
+
+[connection signal="tile_selected" from="MarginContainer/HBoxContainer/TileSelector" to="TileMap" method="set_selected_tile"]

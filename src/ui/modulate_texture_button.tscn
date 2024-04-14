@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1b0va7vjxwgq"]
+
+[ext_resource type="Script" path="res://src/ui/modulate_texture_button.gd" id="2_7ykhs"]
+
+[node name="ModulateTextureButton" type="TextureButton"]
+modulate = Color(1, 1, 1, 0.5)
+offset_right = 64.0
+offset_bottom = 64.0
+stretch_mode = 0
+script = ExtResource("2_7ykhs")
